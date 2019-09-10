@@ -20,7 +20,7 @@ class ShipDashboard
   end
 
   def create_scope
-    Ship.all
+    Ship.none
   end
 
   def create_permitted_params(params)
@@ -66,7 +66,7 @@ class ShipDashboard
   end
 
   def update_scope
-    Ship.all
+    Ship.none
   end
 
   def update_permitted_params(params)
@@ -74,6 +74,6 @@ class ShipDashboard
   end
 
   def destroy_scope
-    Ship.all
+    Ship.none
   end
 end

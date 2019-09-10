@@ -22,7 +22,7 @@ class MemberDashboard
   end
 
   def create_scope
-    Member.all
+    Member.none
   end
 
   def create_permitted_params(params)
@@ -77,7 +77,7 @@ class MemberDashboard
   end
 
   def update_scope
-    Member.all
+    Member.none
   end
 
   def update_permitted_params(params)
@@ -85,6 +85,6 @@ class MemberDashboard
   end
 
   def destroy_scope
-    Member.all
+    Member.none
   end
 end
