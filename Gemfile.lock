@@ -58,7 +58,6 @@ GEM
       zeitwerk (~> 2.1, >= 2.1.8)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
     builder (3.2.3)
@@ -73,6 +72,7 @@ GEM
       xpath (~> 3.2)
     childprocess (2.0.0)
       rake (< 13.0)
+    coderay (1.1.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
     erubi (1.8.0)
@@ -100,6 +100,12 @@ GEM
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     pg (1.1.4)
+    pry (0.12.2)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    pry-byebug (3.7.0)
+      byebug (~> 11.0)
+      pry (~> 0.10)
     public_suffix (4.0.1)
     puma (3.12.1)
     rack (2.0.7)
@@ -168,11 +174,6 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    web-console (4.0.1)
-      actionview (>= 6.0.0)
-      activemodel (>= 6.0.0)
-      bindex (>= 0.4.0)
-      railties (>= 6.0.0)
     webdrivers (4.1.2)
       nokogiri (~> 1.6)
       rubyzip (~> 1.0)
@@ -193,17 +194,15 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.4.2)
-  byebug
   capybara (>= 2.15)
   jbuilder (~> 2.7)
   pg (>= 0.18, < 2.0)
+  pry-byebug
   puma (~> 3.11)
   rails (~> 6.0.0)
   sass-rails (~> 5)
   selenium-webdriver
   turbolinks (~> 5)
-  tzinfo-data
-  web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)
 
