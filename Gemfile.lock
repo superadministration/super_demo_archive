@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/zachahn/super.git
+  revision: ea102159ad204b7035760c6ef5cb8dd2192cc530
+  specs:
+    super (0.0.0)
+      rails (>= 5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -202,6 +209,7 @@ DEPENDENCIES
   rails (~> 6.0.0)
   sass-rails (~> 5)
   selenium-webdriver
+  super!
   turbolinks (~> 5)
   webdrivers
   webpacker (~> 4.0)
