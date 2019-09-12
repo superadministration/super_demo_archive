@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/zachahn/super.git
-  revision: ea102159ad204b7035760c6ef5cb8dd2192cc530
+  revision: 63396b0fc0ef6307715fb1156a668ca2a913068e
   specs:
     super (0.0.0)
       rails (>= 5.0)
