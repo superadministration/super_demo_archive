@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/zachahn/super.git
-  revision: 63396b0fc0ef6307715fb1156a668ca2a913068e
+  revision: 2333e741a393dddf23d069c940b6eba3db5c862b
   specs:
-    super (0.0.0)
+    super (0.0.2)
       rails (>= 5.0)
 
 GEM
