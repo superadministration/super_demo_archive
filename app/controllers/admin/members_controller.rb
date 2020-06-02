@@ -16,10 +16,6 @@ module Admin
       end
 
       def scope(action:)
-        if action.write? || action.delete?
-          raise Super::Error::Forbidden
-        end
-
         Member.all
       end
 
