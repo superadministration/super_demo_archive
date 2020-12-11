@@ -23,29 +23,12 @@ module Admin
         Member.all
       end
 
-      def show
-        Super::Action.new(
-          steps: [
-            :load_resource,
-          ],
-          page: Super::Layout.new(
-            mains: [
-              Super::Panel.new(
-                Super::Partial.new("resource_header"),
-                Super::Partial.new("show")
-              ),
-              Super::Partial.new("favorite_things")
-            ]
-          )
-        )
-      end
-
       def permitted_params(params, action:)
         params.require(:member).permit(:name, :rank, :position, :ship_id, favorite_things_attributes: [:id, :name, :_destroy])
       end
 
       def display_schema(action:)
-        Super::Schema.new(Super::Display::SchemaTypes.new) do |fields, type|
+        Super::Schema.new(Super::Display::SchemaTypes.new(action)) do |fields, type|
           fields[:name] = type.dynamic(&:itself)
           fields[:rank] = type.dynamic(&:itself)
           fields[:position] = type.dynamic(&:itself)

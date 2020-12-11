@@ -4,6 +4,7 @@ GIT
   specs:
     super (0.0.6)
       rails (>= 5.0)
+    super_test_engine (0.1.1)
 
 GEM
   remote: https://rubygems.org/
@@ -209,6 +210,7 @@ DEPENDENCIES
   sass-rails (~> 5)
   selenium-webdriver
   super!
+  super_test_engine
   turbolinks (~> 5)
   webdrivers
   webpacker (~> 4.0)

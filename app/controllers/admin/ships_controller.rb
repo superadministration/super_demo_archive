@@ -28,10 +28,11 @@ module Admin
       end
 
       def display_schema(action:)
-        Super::Schema.new(Super::Display::SchemaTypes.new) do |fields, type|
+        Super::Schema.new(Super::Display::SchemaTypes.new(action)) do |fields, type|
           fields[:name] = type.dynamic(&:itself)
           fields[:registry] = type.dynamic(&:itself)
           fields[:class_name] = type.dynamic(&:itself)
+          fields[:members] = type.dynamic(&:count)
           if action.show?
             fields[:created_at] = type.dynamic(&:iso8601)
             fields[:updated_at] = type.dynamic(&:iso8601)
