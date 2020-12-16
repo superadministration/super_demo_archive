@@ -17,7 +17,7 @@ module Admin
 
       def scope(action:)
         if action.write? || action.delete?
-          raise Super::Error::Forbidden
+          raise Super::ClientError::Forbidden
         end
 
         Ship.all
