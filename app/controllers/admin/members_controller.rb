@@ -1,5 +1,10 @@
 module Admin
   class MembersController < AdminController
+    def show
+      super
+      @view.mains.push(Super::Partial.new("favorite_things"))
+    end
+
     private
 
     def new_controls
@@ -54,6 +59,19 @@ module Admin
             fields[:name] = type.generic("form_field_text")
             fields[:_destroy] = type._destroy
           end
+        end
+      end
+
+      def filter_schema
+        Super::Schema.new(Super::Filter::SchemaTypes.new) do |fields, type|
+          fields[:name] = type.text
+          fields[:rank] = type.select(collection: Member.ranks.values)
+          fields[:position] = type.text
+          fields[:ship_id] = type.select(
+            collection: Ship.all.map { |s| ["#{s.name} (Ship ##{s.id})", s.id] },
+          )
+          fields[:created_at] = type.timestamp
+          fields[:updated_at] = type.timestamp
         end
       end
     end

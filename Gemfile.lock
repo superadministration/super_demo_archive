@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/zachahn/super.git
-  revision: cd75bdf1cb575d73ab372ef5552e8a1b929d0ee6
+  revision: 2d675dd60273a91328f151f07054b848e94426cc
   specs:
-    super (0.0.6)
-      rails (>= 5.0)
+    super (0.0.7)
+      railties (>= 5.0)
     super_test_engine (0.1.1)
 
 GEM
