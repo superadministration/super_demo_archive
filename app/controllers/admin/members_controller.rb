@@ -11,7 +11,7 @@ module Admin
       Controls.new
     end
 
-    class Controls
+    class Controls < Super::Controls
       def title
         Member.name.pluralize
       end
@@ -33,7 +33,7 @@ module Admin
       end
 
       def display_schema(action:)
-        Super::Schema.new(Super::Display::SchemaTypes.new(action)) do |fields, type|
+        Super::Display.new(action: action) do |fields, type|
           fields[:name] = type.dynamic(&:itself)
           fields[:rank] = type.dynamic(&:itself)
           fields[:position] = type.dynamic(&:itself)
@@ -46,7 +46,7 @@ module Admin
       end
 
       def form_schema(action:)
-        Super::Schema.new(Super::Form::SchemaTypes.new) do |fields, type|
+        Super::Form.new do |fields, type|
           fields[:name] = type.generic("form_field_text")
           fields[:rank] = type.generic("form_field_select", collection: Member.ranks.keys)
           fields[:position] = type.generic("form_field_text")
@@ -63,7 +63,7 @@ module Admin
       end
 
       def filter_schema
-        Super::Schema.new(Super::Filter::SchemaTypes.new) do |fields, type|
+        Super::Filter.new do |fields, type|
           fields[:name] = type.text
           fields[:rank] = type.select(collection: Member.ranks.values)
           fields[:position] = type.text

@@ -6,7 +6,7 @@ module Admin
       Controls.new
     end
 
-    class Controls
+    class Controls < Super::Controls
       def title
         FavoriteThing.name.pluralize
       end
@@ -28,14 +28,14 @@ module Admin
       end
 
       def display_schema(action:)
-        Super::Schema.new(Super::Display::SchemaTypes.new(action)) do |fields, type|
+        Super::Display.new(action: action) do |fields, type|
           fields[:name] = type.dynamic(&:itself)
           fields[:member] = type.dynamic { |member| "#{member.name} (member ##{member.id})" }
         end
       end
 
       def form_schema(action:)
-        Super::Schema.new(Super::Form::SchemaTypes.new) do |fields, type|
+        Super::Form::SchemaTypes.new do |fields, type|
           fields[:name] = type.generic("form_field_text")
 
           fields[:member_attributes] = type.belongs_to(:member) do

@@ -6,7 +6,7 @@ module Admin
       Controls.new
     end
 
-    class Controls
+    class Controls < Super::Controls
       def title
         Ship.name.pluralize
       end
@@ -28,7 +28,7 @@ module Admin
       end
 
       def display_schema(action:)
-        Super::Schema.new(Super::Display::SchemaTypes.new(action)) do |fields, type|
+        Super::Display.new(action: action) do |fields, type|
           fields[:name] = type.dynamic(&:itself)
           fields[:registry] = type.dynamic(&:itself)
           fields[:class_name] = type.dynamic(&:itself)
@@ -41,7 +41,7 @@ module Admin
       end
 
       def form_schema(action:)
-        Super::Schema.new(Super::Form::SchemaTypes.new) do |fields, type|
+        Super::Form.new do |fields, type|
           fields[:name] = type.generic("form_field_text")
           fields[:registry] = type.generic("form_field_text")
           fields[:class_name] = type.generic("form_field_text")
